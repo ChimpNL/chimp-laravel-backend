@@ -7,7 +7,7 @@
             "email": "info@chimp.nl"
         }
     ],
-    "require": {
+    "require-dev": {
         "laravel/laravel": "5.7"
     },
     "autoload": {
