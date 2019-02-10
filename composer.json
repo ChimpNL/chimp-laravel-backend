@@ -1,13 +1,18 @@
 {
     "name": "chimpnl/chimp-laravel-backend",
     "type": "library",
-    "require": {
-        "laravel/laravel": "5.7"
-    },
     "authors": [
         {
             "name": "Chimp",
             "email": "info@chimp.nl"
         }
-    ]
+    ],
+    "require": {
+        "laravel/laravel": "5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chimp\\Laravel\\": "src/"
+        }
+    }
 }
