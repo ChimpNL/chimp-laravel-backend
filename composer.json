@@ -7,9 +7,6 @@
             "email": "info@chimp.nl"
         }
     ],
-    "require-dev": {
-        "laravel/laravel": "5.7"
-    },
     "autoload": {
         "psr-4": {
             "Chimp\\Laravel\\": "src/"
