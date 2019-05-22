@@ -15,6 +15,7 @@ abstract class ChimpApiException extends \Exception
     protected $errorCode = null;
     protected $publicMsg = '';
     protected $privateMsg = '';
+
     /**
      * @var \Exception
      */
@@ -38,6 +39,12 @@ abstract class ChimpApiException extends \Exception
         return $this;
     }
 
+    public static function create(string $publicMsg, string $privateMsg = null, $originalException = null)
+    {
+        return new static($publicMsg, $privateMsg = null, null);
+    }
+
+
     /**
      * @return int
      */
@@ -49,9 +56,10 @@ abstract class ChimpApiException extends \Exception
     /**
      * @param int $statusCode
      */
-    public function setStatusCode(int $statusCode): void
+    public function setStatusCode(int $statusCode)
     {
         $this->statusCode = $statusCode;
+        return $this;
     }
 
     /**
@@ -81,9 +89,27 @@ abstract class ChimpApiException extends \Exception
     /**
      * @param null $errorCode
      */
-    public function setErrorCode($errorCode): void
+    public function setErrorCode($errorCode)
     {
         $this->errorCode = $errorCode;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrivateMsg(): string
+    {
+        return $this->privateMsg;
+    }
+
+    /**
+     * @param string $privateMsg
+     */
+    public function setPrivateMsg(string $privateMsg)
+    {
+        $this->privateMsg = $privateMsg;
+        return $this;
     }
 
     public function getAPIMessage()
