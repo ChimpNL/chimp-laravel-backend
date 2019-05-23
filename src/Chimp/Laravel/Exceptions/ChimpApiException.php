@@ -117,7 +117,7 @@ abstract class ChimpApiException extends \Exception
         if (App::environment('production')) {
             return $this->publicMsg;
         } else {
-            return $this->privateMsg ? $this->privateMsg : $this->publicMsg;
+            return $this->privateMsg ? $this->publicMsg . ' | ' . $this->privateMsg : $this->publicMsg;
         }
     }
 
