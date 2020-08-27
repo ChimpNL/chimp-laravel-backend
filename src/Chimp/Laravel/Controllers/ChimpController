@@ -1,0 +1,59 @@
+<?php
+
+namespace Chimp\Laravel\Controller;
+
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+use Illuminate\Support\Facades\Response;
+// use Illuminate\Http\JsonResponse;
+// use Illuminate\Support\Facades\App;
+
+
+/**
+ * Class ChimpController
+ * @package Chimp\Laravel\Controller
+ */
+abstract class ChimpController extends BaseController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function singleResponse($data, String $messsage = '', Int $httpCode = 200)
+    {
+        return response()->json([
+            'data' => $data,
+            'messsage' => $messsage,
+        ], $httpCode);
+    }
+
+    public function listResponse($data, String $messsage = '', Int $httpCode = 200)
+    {
+        return response()->json([
+            'data' => $data,
+            'messsage' => $messsage,
+        ], $httpCode);
+    }
+
+    public function notFound(String $messsage = 'Requested item not found.', Int $httpCode = 404)
+    {
+        return response()->json([
+            'messsage' => $messsage,
+        ], $httpCode);
+    }
+
+    public function badRequest(String $messsage = 'Invalid request.', Int $httpCode = 400)
+    {
+        return response()->json([
+            'messsage' => $messsage,
+        ], $httpCode);
+    }
+
+    public function noDataResponse(String $messsage, Int $httpCode)
+    {
+        return response()->json([
+            'messsage' => $messsage,
+        ], $httpCode);
+    }
+}

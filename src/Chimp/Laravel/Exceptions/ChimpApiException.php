@@ -1,5 +1,6 @@
-<?php namespace Chimp\Laravel\Exceptions;
+<?php
 
+namespace Chimp\Laravel\Exceptions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Response;
@@ -148,5 +149,4 @@ abstract class ChimpApiException extends \Exception
         $response = new JsonResponse($data, $this->getStatusCode());
         return $response;
     }
-
 }
