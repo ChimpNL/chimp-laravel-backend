@@ -1,10 +1,9 @@
 <?php namespace Chimp\Laravel\Exceptions;
 
-use \Exception;
 
 class ChimpApiExceptionHandler {
 
-    public function handle(Exception $e)
+    public function handle(\Throwable $e)
     {
         if ($e instanceof ChimpApiException) {
             return $e->getApiResponse();
